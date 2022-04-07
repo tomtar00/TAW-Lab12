@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class DataService {
 
-  private url: string = 'https://taw-posts.herokuapp.com';
+	private url: string = 'https://taw-posts.herokuapp.com';
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
 
-  getAll() {
-    return this.http.get(this.url + '/api/posts');
-  }
+	getAll() {
+		return this.http.get(this.url + '/api/posts');
+	}
+
+	getById(id: string) {
+		return this.http.get(this.url + '/api/posts/' + id);
+	}
+
 }
